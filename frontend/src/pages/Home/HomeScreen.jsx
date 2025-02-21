@@ -12,6 +12,10 @@ const HomeScreen = () => {
 	const { contentType } = useContentStore();
 	const [imgLoading, setImgLoading] = useState(true);
 
+	console.log("Trending Content:", trendingContent);
+    console.log("Trending Content ID:", trendingContent?.id); // Vérifier si l'ID existe
+
+
 	if (!trendingContent)
 		return (
 			<div className='h-screen text-white relative'>
@@ -19,6 +23,7 @@ const HomeScreen = () => {
 				<div className='absolute top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center -z-10 shimmer' />
 			</div>
 		);
+		console.log("Redirection vers :", `/watch/${trendingContent?.id}`);
 
 	return (
 		<>
@@ -64,14 +69,16 @@ const HomeScreen = () => {
 						</p>
 					</div>
 
+							
 					<div className='flex mt-8'>
+
 						<Link
-							to={`/watch/${trendingContent?.id}`}
+							to={`/watch/${trendingContent?.id}`} 
 							className='bg-white hover:bg-white/80 text-black font-bold py-2 px-4 rounded mr-4 flex
 							 items-center'
 						>
 							<Play className='size-6 mr-2 fill-black' />
-							Play
+							Play 
 						</Link>
 
 						<Link
