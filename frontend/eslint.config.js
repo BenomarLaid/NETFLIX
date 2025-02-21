@@ -35,5 +35,6 @@ export default [
       ],
     },
     "react/no-unescaped-entities":"off",
+    "react/prop-types":"off",
   },
 ]
